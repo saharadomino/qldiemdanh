@@ -31,10 +31,10 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Lớp học</label>
+                                    <label for="exampleInputPassword1">Phòng học</label>
                                     <select name="product_brand" class="form-control input-sm m-bot15">
                                         @foreach($brand_product as $key=>$brand)
-                                        <option value="{{$brand->ma_lop}}">{{$brand->ten_lop}}</option>
+                                        <option value="{{$brand->ma_phong}}">{{$brand->ma_phong}}</option>
                                         @endforeach
                                     </select>
                                 </div>
