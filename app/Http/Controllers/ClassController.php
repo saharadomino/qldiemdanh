@@ -89,7 +89,7 @@ class ClassController extends Controller
     public function add_class(){
         $this->authlogin();
         $cate_product=DB::table('subject')->orderBy('ma_monhoc','desc')->get();
-        $brand_product=DB::table('class')->orderBy('ma_lop','desc')->get();
+        $brand_product=DB::table('room')->orderBy('ma_phong','desc')->get();
        
         return view('admin.add_class')->with('cate_product',$cate_product)->with('brand_product',$brand_product);
 
