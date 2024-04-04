@@ -20,33 +20,33 @@
                                         Session::put('message',null);
                                     } 
                                     ?>
-                                <form role="form" action="{{URL::to('/save-class')}}" method="post" enctype="multipart/form-data">
+                                <form role="form" action="{{URL::to('/save-student')}}" method="post" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Môn học</label>
-                                    <select name="product_cate" class="form-control input-sm m-bot15">
+                                    <label for="exampleInputPassword1">Lớp</label>
+                                    <select name="ma_lop" class="form-control input-sm m-bot15">
                                         @foreach($cate_product as $key=>$cate)
-                                        <option value="{{$cate->ma_monhoc}}">{{$cate->ten_monhoc}}</option>
+                                        <option value="{{$cate->ma_lop}}">{{$cate->ten_lop}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Phòng học</label>
-                                    <select name="product_brand" class="form-control input-sm m-bot15">
-                                        @foreach($brand_product as $key=>$brand)
-                                        <option value="{{$brand->ma_phong}}">{{$brand->ma_phong}}</option>
-                                        @endforeach
-                                    </select>
+                                    <label for="exampleInputEmail1">Tên sinh viên</label>
+                                    <input name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên thương hiệu">
                                 </div>
                                 <div class="form-group">
-                                    <label for="start_date">Ngày bắt đầu:</label>
-                                    <input type="text"  id="start_date" name="start_date" class="form-control" placeholder="Chọn ngày bắt đầu">
+                                    <label for="exampleInputEmail1">Giới tính</label>
+                                    <input name="gender" type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên thương hiệu">
                                 </div>
                                 <div class="form-group">
-                                    <label for="end_date">Ngày kết thúc:</label>
-                                    <input type="text"  id="end_date" name="end_date" class="form-control" placeholder="Chọn ngày kết thúc">
+                                    <label for="start_date">Ngày sinh nhật</label>
+                                    <input type="text" id="start_date" name="birthday" class="form-control" placeholder="Chọn ngày sinh nhật">
                                 </div>
-                                <button type="submit" name="add_product" class="btn btn-info">Thêm lịch trình</button>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email</label>
+                                    <input name="email" type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên thương hiệu">
+                                </div>
+                                <button type="submit" name="add_product" class="btn btn-info">Thêm sinh viên</button>
                             </form>
                             </div>
 
@@ -61,15 +61,7 @@
                  $(document).ready(function(){
                     $("#start_date").datepicker({
                         dateFormat: 'yy-mm-dd', // định dạng ngày khi được chọn
-                        onSelect: function(selected) {
-                            $("#end_date").datepicker("option", "minDate", selected); // đặt ngày bắt đầu là ngày tối thiểu cho ngày kết thúc
-                        }
-                    });
-                    $("#end_date").datepicker({
-                        dateFormat: 'yy-mm-dd', // định dạng ngày khi được chọn
-                        onSelect: function(selected) {
-                            $("#start_date").datepicker("option", "maxDate", selected); // đặt ngày kết thúc là ngày tối đa cho ngày bắt đầu
-                        }
+                    
                     });
                 });
             </script>

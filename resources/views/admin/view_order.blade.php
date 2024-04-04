@@ -30,9 +30,9 @@
             <td>{{$order->ma_lop}}</td>
             <td>{{$order->masv}}</td>
             <td>{{$order->name}}</td>
-            <td>{{$order->solancomat}}</td>
-            <td>{{$order->solanvang}}</td>
-            <td>{{$order->note}}</td>
+            <td>{{$order->sobuoicomat}}</td>
+            <td>{{$order->sobuoivang}}</td>
+            <td>{{$order->ghichu}}</td>
           </tr>
           @endforeach
         </tbody>

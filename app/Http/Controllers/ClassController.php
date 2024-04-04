@@ -35,7 +35,8 @@ class ClassController extends Controller
         $admin_id=Session::get('ma_teacher');
         $order_by_id=DB::table('attendance')
         ->join('student','student.masv','=','attendance.masv')
-        ->select('attendance.*','student.*')->where('attendance.ma_monhoc',$orderId)->where('attendance.ma_teacher',$admin_id)->get();
+        ->join('schedule','schedule.id','=','attendance.id')
+        ->select('attendance.*','student.*','schedule.*')->where('attendance.id',$orderId)->where('schedule.ma_teacher',$admin_id)->get();
         // $order_details_by_id=DB::table('student')->where('masv',$order_by_id->masv)->first();
         $manager_order_by_id=view('admin.view_order')->with('order_by_id',$order_by_id);
         return view('admin_layout')->with('admin.view_order',$manager_order_by_id);
@@ -76,7 +77,7 @@ class ClassController extends Controller
     }
     public function delete_order($orderId){
         $this->authlogin();
-        DB::table('subject')->where('ma_monhoc',$orderId)->delete();
+        DB::table('schedule')->where('ma_monhoc',$orderId)->delete();
         Session::put('message','Xóa thành công');
         return Redirect::to('manage-order');
     }
@@ -89,7 +90,7 @@ class ClassController extends Controller
     public function add_class(){
         $this->authlogin();
         $cate_product=DB::table('subject')->orderBy('ma_monhoc','desc')->get();
-        $brand_product=DB::table('class')->orderBy('ma_lop','desc')->get();
+        $brand_product=DB::table('room')->orderBy('ma_phong','desc')->get();
        
         return view('admin.add_class')->with('cate_product',$cate_product)->with('brand_product',$brand_product);
 
@@ -102,7 +103,7 @@ class ClassController extends Controller
         $data['indate']=$request->start_date;
         $data['outdate']=$request->end_date;
         $data['ma_monhoc']=$request->product_cate;
-        $data['ma_lop']=$request->product_brand;
+        $data['ma_phong']=$request->product_brand;
 
         DB::table('schedule')->insert($data);
         Session::put('message','Thêm lịch trình thành công!');

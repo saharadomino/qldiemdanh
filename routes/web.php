@@ -21,3 +21,14 @@ Route::get('/edit-schedule/{orderId}', [App\Http\Controllers\ClassController::cl
 Route::post('/update-schedule/{product_id}', [App\Http\Controllers\ClassController::class, 'update_schedule']);
 Route::get('/delete-schedule/{orderId}', [App\Http\Controllers\ClassController::class,'delete_schedule']);
 
+Route::get('/manage-subject', [App\Http\Controllers\SubjectController::class,'manage_subject']);
+Route::get('/add-subject', [App\Http\Controllers\SubjectController::class,'add_subject']);
+Route::post('/save-subject', [App\Http\Controllers\SubjectController::class, 'save_subject']);
+Route::get('/edit-subject/{orderId}', [App\Http\Controllers\SubjectController::class,'edit_subject']);
+Route::post('/update-subject/{subject_id}', [App\Http\Controllers\SubjectController::class, 'update_subject']);
+
+Route::get('/manage-attendance/{orderId}', [App\Http\Controllers\AttendanceController::class,'manage_attendance']);
+Route::get('/present-attendance/{orderId}', [App\Http\Controllers\AttendanceController::class, 'present_attendance']);
+Route::get('/not-present-attendance/{orderId}', [App\Http\Controllers\AttendanceController::class, 'not_present_attendance']);
+Route::get('/add-student/{stuId}', [App\Http\Controllers\AttendanceController::class,'add_student']);
+Route::post('/save-student', [App\Http\Controllers\AttendanceController::class, 'save_student']);

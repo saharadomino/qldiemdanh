@@ -27,22 +27,21 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Tên giáo viên</th>
+            <th>Mã môn học</th>
             <th>Tên môn học</th>
-            <th>Phòng học</th>
+            <th>Tổng số buổi</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
-            @foreach($all_order as $key=>$order)
+            @foreach($all_subject as $key=>$subject)
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{$order->name}}</td>
-            <td>{{$order->ten_monhoc}}</td>
-            <td>{{$order->ma_phong}}</td>
+            <td>{{$subject->ma_monhoc}}</td>
+            <td>{{$subject->ten_monhoc}}</td>
+            <td>{{$subject->tongsobuoi}}</td>
             <td>
-              <a href="{{URL::to('/view-order/'.$order->id)}}" class="active styling-edit" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i></a>
-              <a href="{{URL::to('/manage-attendance/'.$order->id)}}" class="active styling-edit" ui-toggle-class=""><i class="fa fa-book"></i></a>
+              <a href="{{URL::to('/edit-subject/'.$subject->ma_monhoc)}}" class="active styling-edit" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i></a>
             </td>
           </tr>
           @endforeach

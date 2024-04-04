@@ -84,12 +84,25 @@ use Illuminate\Support\Facades\Session;
                 </li>
                 
                 <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="{{URL::to('/manage-order')}}">
                         <i class="fa fa-book"></i>
                         <span>Điểm danh</span>
                     </a>
+                    <!-- <ul class="sub">
+						<li><a href="{{URL::to('/manage-order')}}">Điểm danh</a></li>
+                    </ul> -->
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Môn học</span>
+                    </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/manage-order')}}">Môn học</a></li>
+						<li><a href="{{URL::to('/manage-subject')}}">Danh sách môn học</a></li>
+                    </ul>
+					<ul class="sub">
+						<li><a href="{{URL::to('/add-subject')}}">Thêm môn học</a></li>
                     </ul>
                 </li>
 
